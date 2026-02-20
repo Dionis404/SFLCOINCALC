@@ -1,0 +1,206 @@
+{
+    "animals": {},
+    "crops": {
+        "artichoke": {
+            "avg": 3.53151515,
+            "max": 23.1,
+            "min": 2.3
+        },
+        "barley": {
+            "avg": 3.53151515,
+            "max": 23.1,
+            "min": 2.3
+        },
+        "beetroot": {
+            "avg": 2.03151515,
+            "max": 21.6,
+            "min": 0.8
+        },
+        "broccoli": {
+            "avg": 2.03151515,
+            "max": 21.6,
+            "min": 0.8
+        },
+        "cabbage": {
+            "avg": 2.28151515,
+            "max": 21.85,
+            "min": 1.05
+        },
+        "carrot": {
+            "avg": 2.58751515,
+            "max": 24.1,
+            "min": 1.14
+        },
+        "cauliflower": {
+            "avg": 2.03151515,
+            "max": 21.6,
+            "min": 0.8
+        },
+        "corn": {
+            "avg": 3.63151515,
+            "max": 23.2,
+            "min": 2.4
+        },
+        "eggplant": {
+            "avg": 3.83151515,
+            "max": 23.4,
+            "min": 2.6
+        },
+        "kale": {
+            "avg": 3.73151515,
+            "max": 23.3,
+            "min": 2.5
+        },
+        "onion": {
+            "avg": 3.53151515,
+            "max": 23.1,
+            "min": 2.3
+        },
+        "parsnip": {
+            "avg": 2.03151515,
+            "max": 21.6,
+            "min": 0.8
+        },
+        "pepper": {
+            "avg": 2.03151515,
+            "max": 21.6,
+            "min": 0.8
+        },
+        "potato": {
+            "avg": 1.78,
+            "max": 11.5,
+            "min": 0.7
+        },
+        "pumpkin": {
+            "avg": 2.236,
+            "max": 13.9,
+            "min": 0.94
+        },
+        "radish": {
+            "avg": 3.53151515,
+            "max": 23.1,
+            "min": 2.3
+        },
+        "rhubarb": {
+            "avg": 1.78,
+            "max": 11.5,
+            "min": 0.7
+        },
+        "soybean": {
+            "avg": 2.13151515,
+            "max": 21.7,
+            "min": 0.9
+        },
+        "sunflower": {
+            "avg": 2.008,
+            "max": 12.7,
+            "min": 0.82
+        },
+        "turnip": {
+            "avg": 3.53151515,
+            "max": 23.1,
+            "min": 2.3
+        },
+        "wheat": {
+            "avg": 3.53151515,
+            "max": 23.1,
+            "min": 2.3
+        },
+        "yam": {
+            "avg": 2.03151515,
+            "max": 21.6,
+            "min": 0.8
+        },
+        "zucchini": {
+            "avg": 1.78,
+            "max": 11.5,
+            "min": 0.7
+        }
+    },
+    "fruits": {
+        "apple": {
+            "avg": 1.45,
+            "max": 1.45,
+            "min": 1.45
+        },
+        "banana": {
+            "avg": 1.3,
+            "max": 1.3,
+            "min": 1.3
+        },
+        "blueberry": {
+            "avg": 1.2,
+            "max": 1.2,
+            "min": 1.2
+        },
+        "lemon": {
+            "avg": 1.35,
+            "max": 1.35,
+            "min": 1.35
+        },
+        "orange": {
+            "avg": 1.2,
+            "max": 1.2,
+            "min": 1.2
+        },
+        "tomato": {
+            "avg": 1.1,
+            "max": 1.1,
+            "min": 1.1
+        }
+    },
+    "greenhouse": {
+        "grape": {
+            "avg": 1.6,
+            "max": 2.35,
+            "min": 1.35
+        },
+        "olive": {
+            "avg": 3.88,
+            "max": 14.35,
+            "min": 2.55
+        },
+        "rice": {
+            "avg": 2.88,
+            "max": 13.35,
+            "min": 1.55
+        }
+    },
+    "resources": {
+        "crimstone": {
+            "avg": 1.7,
+            "max": 4.1,
+            "min": 1.1
+        },
+        "gold": {
+            "avg": 1.9,
+            "max": 2.7,
+            "min": 1.7
+        },
+        "iron": {
+            "avg": 1.85,
+            "max": 2.65,
+            "min": 1.65
+        },
+        "oil": {
+            "avg": 16.767,
+            "max": 30.1,
+            "min": 10.1
+        },
+        "stone": {
+            "avg": 1.98478261,
+            "max": 4.65,
+            "min": 1.55
+        },
+        "sunstone": {
+            "avg": 1,
+            "max": 1,
+            "min": 1
+        },
+        "wood": {
+            "avg": 1.7,
+            "max": 4.3,
+            "min": 1.3
+        }
+    }
+}

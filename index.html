@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFL Coin Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .skill-checkbox {
+            display: none;
+        }
+        label {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            font-size: 16px;
+            user-select: none;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .skill-label:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e4a672;
+            background: white;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .skill-checkbox:checked + .skill-label:before {
+            background: #e4a672;
+        }
+        .skill-checkbox:checked + .skill-label:after {
+            content: "✓";
+            position: absolute;
+            left: 5px;
+            top: -2px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-image: url("button/light_button.png");
+            background-size: cover;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            image-rendering: pixelated;
+            -webkit-image-rendering: pixelated;
+            -moz-image-rendering: pixelated;
+            min-width: 150px;
+            min-height: 40px;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        #result {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+            border: 10px solid transparent;
+            border-image: url("borders/light_border.png") 20% / 1 / 0 repeat;
+            image-rendering: pixelated;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e4a672;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .profit {
+            background-color: #e4a672;
+            color: white;
+        }
+        .loss {
+            background-color: #f44336;
+            color: white;
+        }
+        h2 {
+            color: white;
+            font-size: 1.2em;
+            background-color: #e4a672;
+            border: 10px solid transparent;
+            border-image: url("borders/light_border.png") 20% / 1 / 0 repeat;
+            padding: 12px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 0;
+            image-rendering: pixelated;
+        }
+        .results-container {
+            display: flex;
+            gap: 20px;
+        }
+        .left-column, .right-column {
+            flex: 1;
+        }
+        #calculatorForm {
+            border: 10px solid transparent;
+            border-image: url("borders/light_border.png") 20% / 1 / 0 repeat;
+            padding: 20px;
+            background-color: #f4e4bc;
+            margin-bottom: 20px;
+            image-rendering: pixelated;
+        }
+        .checkboxes-block {
+            border: 10px solid transparent;
+            border-image: url("borders/light_border.png") 20% / 1 / 0 repeat;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f4e4bc;
+            image-rendering: pixelated;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nft-checkbox {
+            display: none;
+        }
+        .nft-label:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e4a672;
+            background: white;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .nft-checkbox:checked + .nft-label:before {
+            background: #e4a672;
+        }
+        .nft-checkbox:checked + .nft-label:after {
+            content: "✓";
+            position: absolute;
+            left: 5px;
+            top: -2px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .skills-group, .nft-group {
+            margin-bottom: 15px;
+        }
+        .skills-group h3, .nft-group h3 {
+            margin: 15px 0 10px 0;
+            font-size: 1.1em;
+            color: #e4a672;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .lang-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 2px solid #e4a672;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+            transition: all 0.3s;
+            min-width: 50px;
+            min-height: auto;
+            background-image: none;
+        }
+        .lang-btn:hover {
+            background-color: #f4e4bc;
+            opacity: 1;
+        }
+        .lang-btn.active {
+            background-color: #e4a672;
+            color: white;
+        }
+        body {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="ru" onclick="i18n.setLanguage('ru')">RU</button>
+        <button class="lang-btn" data-lang="en" onclick="i18n.setLanguage('en')">EN</button>
+    </div>
+    
+    <h1 data-i18n="title">Калькулятор стоимости добычи ресурсов SFL</h1>
+    <form id="calculatorForm">
+        <label for="farmId" data-i18n="form.farmIdLabel">Farm ID:</label>
+        <input type="text" id="farmId" data-i18n-placeholder="form.farmIdPlaceholder" placeholder="Введите ID фермы" required>
+
+        <div class="checkboxes-block">
+            <div class="skills-group">
+                <h3 data-i18n="form.skillsTitle">Навыки</h3>
+                <input type="checkbox" id="axeSkill" class="skill-checkbox">
+                <label for="axeSkill" class="skill-label" data-i18n="form.axeSkill">Навык топора</label>
+                <br>
+                <input type="checkbox" id="pickaxeSkill" class="skill-checkbox">
+                <label for="pickaxeSkill" class="skill-label" data-i18n="form.pickaxeSkill">Навык кирки</label>
+                <br>
+                <input type="checkbox" id="freeSeeds" class="skill-checkbox">
+                <label for="freeSeeds" class="skill-label" data-i18n="form.freeSeeds">Бесплатные семена</label>
+            </div>
+            <div class="nft-group">
+                <h3 data-i18n="form.nftTitle">NFT Предметы</h3>
+                <input type="checkbox" id="woodNFT" class="nft-checkbox">
+                <label for="woodNFT" class="nft-label" data-i18n="form.woodNFT">NFT для дерева (бесплатная добыча)</label>
+                <br>
+                <input type="checkbox" id="stoneNFT" class="nft-checkbox">
+                <label for="stoneNFT" class="nft-label" data-i18n="form.stoneNFT">NFT для камня (бесплатная добыча)</label>
+            </div>
+        </div>
+
+        <button type="button" onclick="handleCalculate()" data-i18n="form.calculateButton">Рассчитать</button>
+    </form>
+    <div id="result"></div>
+
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Инициализировать i18n при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            i18n.init();
+        });
+    </script>
+</body>
+</html>
