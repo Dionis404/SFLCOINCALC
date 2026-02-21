@@ -37,18 +37,17 @@ const i18n = {
   
   // Сменить язык
   setLanguage(lang) {
+    console.log('[DEBUG] i18n.setLanguage called:', lang);
     if (translations[lang]) {
       this.currentLanguage = lang;
       localStorage.setItem('sfl-calc-language', lang);
       this.updateDOM();
       this.updateLanguageSwitcher();
       
-      // Если есть результаты расчетов, перерисовать их
-      const resultDiv = document.getElementById('result');
-      if (resultDiv && resultDiv.innerHTML && resultDiv.innerHTML.includes('<table>')) {
-        // Результаты есть, нужно пересчитать с новым языком
-        handleCalculate();
-      }
+      // ИСПРАВЛЕНО: Не вызываем автоматический пересчет при смене языка
+      // Это предотвращает множественные запросы к API
+      // Пользователь может нажать кнопку Calculate снова, если нужно
+      console.log('[DEBUG] Language changed, NOT triggering automatic recalculation');
     }
   },
   

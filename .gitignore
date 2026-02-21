@@ -1,0 +1,17 @@
+# Development plans - local only
+plans/
+
+# Test files
+test_*.html
+test_*.js
+*_test.html
+*_test.js
+test/
+tests/
+
+# IDE settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
